@@ -1,0 +1,22 @@
+https://leetcode.com/problems/power-of-two/
+
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+    // 0  kisi ka power ni h
+     if(n==0)return false;
+     /* for n = 16
+        16%2 == 0 -> 8
+        8%2 == 0 -> 4
+        4%2 == 0 -> 2
+        2%2 == 0 -> 1
+        n==1 condition true return true*/
+     while(n%2==0){
+         n=n/2;
+     }
+     if(n==1)return true;
+        return false;
+    }
+};
+
+//Similar code will be there for finding the power of 3,4... just change 2 to 3 and so on
