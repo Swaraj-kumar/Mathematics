@@ -1,0 +1,27 @@
+https://leetcode.com/problems/plus-one/
+
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digit){
+        int carry = 0;
+        for(int i=digit.size()-1;i>=0;i--){
+            //if last digit is less than 9 simply add 1 and break
+            if(digit[i] < 9){
+                digit[i] = digit[i] + 1;
+                break;
+            }
+            //if its 9 then adding 1 make it to 0 and its prev element will increment by 1 carry
+            else{
+                digit[i] = 0;
+                carry = carry + 1;
+            }
+            //if carry is reached till size of array i.e 0th pos then push 0 at last and therby
+            //oth pos will be 1
+            if(carry == digit.size()){
+                digit.push_back(0);
+                digit[0] = 1;
+            }
+        }
+        return digit;
+    }
+};
