@@ -1,0 +1,27 @@
+https://leetcode.com/problems/number-of-good-pairs/
+
+    int numIdenticalPairs(vector<int>& nums) {
+        // int count = 0;
+        // for(int i=0;i<nums.size();i++){
+        //     for(int j=i+1;j<nums.size();j++){
+        //         if(nums[i] == nums[j]){
+        //             count++;
+        //         }
+        //     }
+        // }
+        // return count;
+
+        //APPROACH 2
+        /*Store all the key value pairs in map and iterate over it
+        To caalculate good pairs use n*(n-1)/2 formulae*/
+        
+        unordered_map<int,int>mp;
+        for(int i=0;i<nums.size();i++){
+            mp[nums[i]]++;
+        }
+        int ans = 0;
+        for(auto it: mp){
+            ans += it.second*(it.second-1)/2;
+        }
+        return ans;
+}
