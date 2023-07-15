@@ -1,0 +1,24 @@
+https://leetcode.com/problems/self-dividing-numbers/
+
+class Solution {
+public:
+    bool fun(int n){
+        int num = n;
+        while(n>0){
+            int digit = n%10;
+            if(digit==0)return false;
+            if(num%digit != 0)return false;
+            
+            n = n/10;
+        }
+        return true;
+    }
+    
+    vector<int> selfDividingNumbers(int low, int high) {
+        vector<int>res;
+        for(int i=low;i<=high;i++){
+            if(fun(i) == true)res.push_back(i);
+        }
+        return res;
+    }
+};
