@@ -1,0 +1,32 @@
+https://leetcode.com/problems/integer-to-roman/
+
+
+// T.c - > o(1) algorithm iterated for 13 times which is o(13) which is constant
+class Solution {
+public:
+    string intToRoman(int num) {
+        string ans = "";
+        vector<pair<int, string>> temp = 
+        {{1000, "M"},
+         {900, "CM"},
+         {500, "D"},
+         {400, "CD"},
+         {100, "C"},
+         {90, "XC"},
+         {50, "L"},
+         {40, "XL"},
+         {10, "X"},
+         {9, "IX"},
+         {5, "V"},
+         {4, "IV"},
+         {1, "I"}};
+
+        for(int i=0;i<temp.size();i++){
+            while(num >= temp[i].first){
+                ans += temp[i].second;
+                num -= temp[i].first;
+            }
+        }
+        return ans;
+    }
+};
